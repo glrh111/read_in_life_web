@@ -11,3 +11,5 @@
 1. 参考`https://angular.io/guide/quickstart`
 
 2. `npm install -g @angular/cli`
+
+3. 发布到线上: `ng build --prod`
