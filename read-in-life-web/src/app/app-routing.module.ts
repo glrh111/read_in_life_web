@@ -13,21 +13,27 @@ import {
 import { TimelineComponent } from './timeline/timeline.component';
 import { UserComponent } from './user/user.component';
 import { PostDetailedComponent } from './component/post-detailed/post-detailed.component';
+import { PostEditComponent } from './component/post-edit/post-edit.component';
 
 const appRoutes: Routes = [
   {
-    path: 'timeline',
+    path: '#timeline',
     component: TimelineComponent,
   },
   {
-    path: 'user',
+    path: '#user',
     component: UserComponent,
   },
   {
-    path: 'post_detailed/:post_id',
+    path: '#post_detailed/:post_id',
     component: PostDetailedComponent,
   },
-  { path: '',   redirectTo: '/timeline', pathMatch: 'full' },
+  {
+    path: '#post_edit/:post_id',
+    component: PostEditComponent,
+  },
+  { path: '', component: TimelineComponent, },
+  // { path: '',   redirectTo: '/timeline', pathMatch: 'full' },
 ];
 @NgModule({
   imports: [

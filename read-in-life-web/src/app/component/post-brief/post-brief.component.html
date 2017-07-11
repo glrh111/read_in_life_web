@@ -10,7 +10,7 @@
  -->
 
 <!-- post-brief -->
-<div class="post-brief">
+<div class="post-brief" [routerLink]="['/#post_detailed', post.post_id]">
 
   <!-- post-brief-user-info -->
   <div *ngIf="if_display_user" class="post-brief-user-info">

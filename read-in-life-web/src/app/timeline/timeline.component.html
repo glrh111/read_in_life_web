@@ -7,8 +7,7 @@
   <app-post-brief
     *ngFor="let post of postList"
     [post]="post"
-    [if_display_user]="if_display_user"
-    [routerLink]="['/post_detailed', post.post_id]">
+    [if_display_user]="if_display_user">
 
   </app-post-brief>
 

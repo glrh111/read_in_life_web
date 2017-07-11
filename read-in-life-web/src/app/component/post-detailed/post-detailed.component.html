@@ -14,15 +14,21 @@
   <!-- 文章下面的相关信息 -->
   <div class="post-detailed-info">
     <div class="post-detailed-info-avatar"><img src="{{post.user_info.avatar}}"></div>
-    <div class="post-detailed-info-utime">{{post.utime}}</div>
+    <div class="post-detailed-info-utime">{{post.utime | date:'short'}}</div>
     <div class="post-detailed-info-penname">{{post.user_info.penname}}</div>
 
-    <!--  -->
-    <div class="post-detailed-info-edit">编辑</div>
-    <div class="post-detailed-info-publish">{{publishButtonContent}}</div>
+    <!-- 两个按钮 -->
+    <a [routerLink]="['/#post_edit', post.post_id]">
+      <div class="post-detailed-info-edit">
+        编辑
+      </div>
+    </a>
+    <!-- 弹出框 -->
+    <div class="post-detailed-info-publish" (click)="publish()">
+      {{publishButtonContent}}
+    </div>
 
   </div>
-
 
   <!-- 文章内容 markdown渲染出来的 -->
   <div [innerHTML]="htmlContent" class="post-detailed-content">

@@ -1,0 +1,33 @@
+<p>
+  post-edit works!
+</p>
+
+
+{{title}}
+{{abstract}}
+
+
+<!-- 这是文章的编辑页面 -->
+<div class="post-edit">
+
+  <!-- 标题 -->
+  <!--name="title" [formControl]="formC" required -->
+  <md-input-container>
+    <input mdInput placeholder="标题" [(ngModel)]="title">
+  </md-input-container>
+
+  <!-- 摘要 -->
+  <md-input-container>
+    <input mdInput placeholder="摘要" [(ngModel)]="abstract" name="abstract">
+  </md-input-container>
+
+  <!-- 内容 -->
+  <md-input-container>
+    <textarea mdInput placeholder="内容" [(ngModel)]="content" name="content"></textarea>
+  </md-input-container>
+
+
+
+
+
+</div>

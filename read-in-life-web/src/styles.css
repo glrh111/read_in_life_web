@@ -6,7 +6,6 @@ body {
   margin: 0;
 }
 
-a:visited {
-  color: inherit;
+a {
   text-decoration: none;
 }

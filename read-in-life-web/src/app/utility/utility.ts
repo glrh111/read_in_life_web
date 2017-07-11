@@ -13,7 +13,8 @@ export class Utility {
       console.log("reveived: ", body);
       return body[field];
     }
-};
+  }
+
   static handleError (error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
@@ -26,6 +27,14 @@ export class Utility {
     }
     console.error(errMsg);
     return Observable.throw(errMsg);
+  }
+
+  static timestampToDatestr (timestamp: number): string {
+    let date = new Date(timestamp);
+    let year = date.getFullYear();
+    let month = date.getMonth();
+    let day = date.getDay();
+    return "${year}-${month}-${day}"
   }
 
 }
