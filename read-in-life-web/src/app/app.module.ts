@@ -18,14 +18,20 @@ import { PostService } from './service/post.service';
 import { TimelineComponent } from './timeline/timeline.component';
 import { UserComponent } from './user/user.component';
 
-
+// 小组件
+import { PostBriefComponent } from './component/post-brief/post-brief.component';
+import { PostDetailedComponent } from './component/post-detailed/post-detailed.component';
+import { NavigateToComponent } from './component/navigate-to/navigate-to.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TimelineComponent,
-    UserComponent
+    UserComponent,
+    PostBriefComponent,
+    PostDetailedComponent,
+    NavigateToComponent
   ],
   imports: [
     BrowserModule,

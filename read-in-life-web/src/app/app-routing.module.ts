@@ -12,6 +12,8 @@ import {
 } from '@angular/router';
 import { TimelineComponent } from './timeline/timeline.component';
 import { UserComponent } from './user/user.component';
+import { PostDetailedComponent } from './component/post-detailed/post-detailed.component';
+
 const appRoutes: Routes = [
   {
     path: 'timeline',
@@ -20,6 +22,10 @@ const appRoutes: Routes = [
   {
     path: 'user',
     component: UserComponent,
+  },
+  {
+    path: 'post_detailed/:post_id',
+    component: PostDetailedComponent,
   },
   { path: '',   redirectTo: '/timeline', pathMatch: 'full' },
 ];

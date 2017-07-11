@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PostService } from './service/post.service';
 import { Post } from './service/post';
 
@@ -7,21 +7,11 @@ import { Post } from './service/post';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Read In Life';
   postList = [];
   errorMessage: string;
 
-
-  constructor (private postService: PostService) {}
-
-  ngOnInit() { this.getPostList(); }
-
-  getPostList() {
-    this.postService.getTimelingPostList()
-      .subscribe(
-        data => this.postList = data,
-        error =>  this.errorMessage = <any>error);
-  }
+  constructor () {}
 
 }

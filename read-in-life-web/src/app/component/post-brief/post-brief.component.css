@@ -1,0 +1,53 @@
+
+
+/* 整体 */
+.post-brief {
+  background: #fff;
+  max-width: 1000px;
+  padding: 8px;
+  text-align: left;
+  display: block;
+  margin: 20px auto;
+}
+
+/* 头像 + 发表文章标记 */
+.post-brief-user-info {
+  border-bottom: 1px solid #eee;
+}
+
+.post-brief-user-info img {
+  height: 30px;
+  border-radius: 100%;
+  display: inline-block;
+}
+
+.post-brief-user-info-avatar {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.post-brief-user-info-notice {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: smaller;
+  color: #7f7f7f;
+}
+
+
+
+/* 标题 + 摘要 */
+.post-brief-post-info {
+
+}
+
+/* 标题 */
+.post-brief-post-info-title {
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+/* 摘要 */
+.post-brief-post-info-abstract {
+  /*font-size: smaller;*/
+  color: #7f7f7f;
+}

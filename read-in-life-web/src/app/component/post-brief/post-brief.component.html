@@ -1,0 +1,42 @@
+<!--
+  post-brief
+ |----------------------------------|
+ | 圆形头像  |  penname 发表了一篇文章   |  post-brief-user-info
+ |----------------------------------|
+ | 标题                              |  post-brief-post-info
+ | 摘要                              |
+ |----------------------------------|
+
+ -->
+
+<!-- post-brief -->
+<div class="post-brief">
+
+  <!-- post-brief-user-info -->
+  <div *ngIf="if_display_user" class="post-brief-user-info">
+
+    <div class="post-brief-user-info-avatar">
+      <img src="{{post.user_info.avatar}}">
+    </div>
+
+    <div class="post-brief-user-info-notice">
+      <span>{{post.user_info.penname}} 发表了一篇文章</span>
+    </div>
+
+  </div>
+
+
+
+  <!-- post-brief-post-info -->
+  <div class="post-brief-post-info">
+    <div class="post-brief-post-info-title">
+      <span>{{post.title}}</span>
+    </div>
+
+    <div class="post-brief-post-info-abstract">
+      <span>{{post.abstract}}</span>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,61 @@
+/* 整篇文章 */
+.post-detailed {
+  margin: 0 auto;
+  max-width: 1000px;
+  background: #ffffff;
+  padding: 10px;
+  height: 100vh;
+
+}
+
+/* 文章标题 h2 */
+.post-detailed-title {
+
+
+}
+
+/* 文章下面的信息: 头像 - 发表日期 - 作者 : 编辑 - 发布(转为私密) - (删除) */
+.post-detailed-info {
+  color: #7f7f7f;
+  font-size: smaller;
+}
+
+.post-detailed-info div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 头像 */
+.post-detailed-info-avatar img {
+  height: 20px;
+  border-radius: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 发表日期 */
+.post-detailed-info-utime {
+
+}
+
+/* 作者 */
+.post-detailed-info-penname {
+
+}
+
+
+/* 两个按钮 */
+.post-detailed-info-edit {
+
+}
+.post-detailed-info-publish {
+
+}
+/* 两个按钮共同的 */
+.post-detailed-info-edit,.post-detailed-info-publish {
+  border-radius: 3px;
+  font-size: smaller;
+  color: #62b900;
+  border: 1px solid #62b900;
+}
+
