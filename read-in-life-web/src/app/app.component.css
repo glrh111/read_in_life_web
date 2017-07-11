@@ -1,0 +1,8 @@
+.example-fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.toolbar-img {
+  display: inline-block;
+  height: 80%;
+}
