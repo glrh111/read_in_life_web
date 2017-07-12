@@ -3,12 +3,16 @@
 }
 
 .toolbar-img {
-  display: block;
+  display: inline-block;
 
-  height: 43px;
+  height: 35px;
   border-radius: 100%;
   vertical-align: middle;
 
+}
+
+.inline-button {
+  display: inline-block;
 }
 
 

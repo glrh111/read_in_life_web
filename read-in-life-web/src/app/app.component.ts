@@ -34,14 +34,14 @@ export class AppComponent implements OnInit, AfterContentChecked {
   }
 
   ngOnInit() {
-    let acc = new Account();
-    acc.username = 'glrh111';
-    acc.password = '111';
-    this.accountService.logIn(acc)
-      .subscribe(
-        code => console.log("login code: ", code),
-        error => this.errorMessage = <any>error
-      );
+    // let acc = new Account();
+    // acc.username = 'glrh111';
+    // acc.password = '111';
+    // this.accountService.logIn(acc)
+    //   .subscribe(
+    //     code => console.log("login code: ", code),
+    //     error => this.errorMessage = <any>error
+    //   );
 
 
     this.myself = this.globalService.getMyself(true);
@@ -50,6 +50,11 @@ export class AppComponent implements OnInit, AfterContentChecked {
     //     data => this.user = data,
     //     error => this.errorMessage = <any>error);
 
+  }
+
+  logOut() {
+    console.log("登录出去: in log out");
+    this.accountService.logOut();
   }
 
 }

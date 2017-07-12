@@ -3,7 +3,7 @@
 <!-- 放一个工具条 -->
 <!-- 图标 ----- 空余 ------- 个人头像 -->
 <md-toolbar color="primary">
-  <span><a [routerLink]="['/']"><md-icon>home</md-icon></a></span>
+  <span><a [routerLink]="['/']"><md-icon>home</md-icon> 风雨穿行</a></span>
 
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
@@ -14,11 +14,15 @@
     <a [routerLink]="['/#user']">
       <img class="toolbar-img" src="{{myself.avatar}}">
     </a>
+    <button md-button (click)="logOut()" class="inline-button">LogOut</button>
   </span>
 
   <!-- 登录/注册 -->
   <span *ngIf="!myself">
-    登录 / 注册
+
+    <!-- 跳转到登录页面 -->
+    <a [routerLink]="['/#login']">登录</a>
+
   </span>
 
 </md-toolbar>
