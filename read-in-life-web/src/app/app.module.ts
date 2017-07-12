@@ -17,7 +17,6 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { PostService } from './service/post.service';
 import { TimelineComponent } from './timeline/timeline.component';
 import { UserComponent } from './user/user.component';
 
@@ -26,6 +25,15 @@ import { PostBriefComponent } from './component/post-brief/post-brief.component'
 import { PostDetailedComponent } from './component/post-detailed/post-detailed.component';
 import { NavigateToComponent } from './component/navigate-to/navigate-to.component';
 import { PostEditComponent } from './component/post-edit/post-edit.component';
+
+// 防止route替换#, 并传送到后端渲染
+import {UrlSerializer} from '@angular/router';
+import {CustomUrlSerializer} from './utility/customUrlSerializer';
+
+// service
+import { PostService } from './service/post.service';
+import { UserService } from './service/user.service';
+import { GlobalService } from './service/global.service';
 
 
 @NgModule({
@@ -54,7 +62,10 @@ import { PostEditComponent } from './component/post-edit/post-edit.component';
     AppRoutingModule
   ],
   providers: [
-    PostService
+    PostService,
+    UserService,
+    GlobalService,  // 全局数据存放在这里.
+    { provide: UrlSerializer, useClass: CustomUrlSerializer }
   ],
   bootstrap: [AppComponent]
 })

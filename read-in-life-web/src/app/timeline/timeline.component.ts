@@ -4,7 +4,6 @@ import {  } from '@angular/core'
 import { PostService } from '../service/post.service';
 import { Post } from '../service/post';
 
-// 将背景变为#eee
 
 @Component({
   selector: 'app-timeline',

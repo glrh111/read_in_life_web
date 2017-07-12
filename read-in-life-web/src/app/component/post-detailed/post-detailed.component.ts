@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { PostService } from '../../service/post.service';
 import { Post } from '../../service/post';
@@ -11,7 +11,7 @@ import { markdown } from 'markdown';
   templateUrl: './post-detailed.component.html',
   styleUrls: ['./post-detailed.component.css']
 })
-export class PostDetailedComponent implements OnInit {
+export class PostDetailedComponent implements OnInit, AfterViewInit {
 
   post: Post;
   errorMessage: string;
@@ -27,8 +27,12 @@ export class PostDetailedComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     document.body.style.background = "#ffffff";
     let post_id = +this.route.snapshot.params['post_id'];
+
+    console.log('in post-detailed OnInit: ', post_id);
+
     let that = this;
     // get post by post_id
     this.postService.getPostBYPostId(post_id)
@@ -36,6 +40,10 @@ export class PostDetailedComponent implements OnInit {
         this.parseMarkdown(that),
         error =>  this.errorMessage = <any>error);
 
+  }
+
+  ngAfterViewInit() {
+    console.log('in post-detailed ngAfterViewInit: ', this.post);
   }
 
   parseMarkdown(that) {
