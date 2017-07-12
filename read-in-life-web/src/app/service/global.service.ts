@@ -24,34 +24,24 @@ export class GlobalService {
   constructor (private userService: UserService) {}
 
   myself: User;
+
   errorMessage: string;
 
-  testValue: number;
-
-  calCount: number = 0;
 
   // 获取用户本人的相关信息
   initMyself() {
-    this.userService.getSelfUser()
+    this.userService.getMyself()
       .subscribe(
         data => this.myself = data,
         error => this.errorMessage = <any>error);
   }
 
-  getMyself(): User {
-    if (!this.myself) {
+  // 登录或者退出登录的时候, 需要主动更新, force=true
+  getMyself(force:boolean=false): User {
+    if (force) {
       this.initMyself()
     }
     return this.myself
-  }
-
-  getTestValue() {
-    if (!this.testValue) {
-      this.testValue = 10;
-      this.calCount += 1;
-
-    }
-    return this.testValue + this.calCount
   }
 
 }

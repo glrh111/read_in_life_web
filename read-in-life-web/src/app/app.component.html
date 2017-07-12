@@ -8,10 +8,17 @@
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
 
-  <!-- 图片我不知道怎么显示 -->
-  <!---->
-  <span><a [routerLink]="['/#user']">
-    <img class="toolbar-img" src="http://o9hjg7h8u.bkt.clouddn.com/%E5%9B%BE%E6%A0%87.png"></a>
+  <!-- 用户头像(详情,退出登录), 登录/注册 -->
+  <!-- 用户头像 -->
+  <span *ngIf="myself">
+    <a [routerLink]="['/#user']">
+      <img class="toolbar-img" src="{{myself.avatar}}">
+    </a>
+  </span>
+
+  <!-- 登录/注册 -->
+  <span *ngIf="!myself">
+    登录 / 注册
   </span>
 
 </md-toolbar>

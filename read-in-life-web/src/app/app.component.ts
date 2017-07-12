@@ -1,10 +1,12 @@
-import { Component, OnInit, AfterViewInit, AfterViewChecked, AfterContentChecked, AfterContentInit } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { PostService } from './service/post.service';
 import { Post } from './service/post';
 import { UserService } from './service/user.service';
 import { User } from './service/user';
 
 import { GlobalService } from './service/global.service';
+import { AccountService } from './service/account.service';
+import { Account } from './service/account';
 
 
 @Component({
@@ -12,32 +14,41 @@ import { GlobalService } from './service/global.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterContentChecked, AfterViewChecked {
+export class AppComponent implements OnInit, AfterContentChecked {
   title = 'Read In Life';
   postList = [];
   errorMessage: string;
 
-  user: User;
+  myself: User;
 
-  constructor (private userService: UserService, private globalService: GlobalService) {}
+  constructor (
+    private userService: UserService,
+    private globalService: GlobalService,
+    private accountService: AccountService
+  ) {}
 
-
+  // 检查myself是否发生改变.
   ngAfterContentChecked() {
-    console.log('in AppComponent ngAfterContentChecked: ', this.title);
-  }
-
-  ngAfterViewChecked(){
-    console.log('in AppComponent ngAfterViewChecked: ', this.title);
-
+    this.myself = this.globalService.getMyself();
+    console.log('in AppComponent AfterContentChecked: ', this.title);
   }
 
   ngOnInit() {
-    console.log('in AppComponent ngOnInit: ', this.title);
+    let acc = new Account();
+    acc.username = 'glrh111';
+    acc.password = '111';
+    this.accountService.logIn(acc)
+      .subscribe(
+        code => console.log("login code: ", code),
+        error => this.errorMessage = <any>error
+      );
+
+
+    this.myself = this.globalService.getMyself(true);
     // this.userService.getSelfUser()
     //   .subscribe(
     //     data => this.user = data,
     //     error => this.errorMessage = <any>error);
-    console.log("我曹", this.globalService.getMyself(), this.globalService.getTestValue())
 
   }
 

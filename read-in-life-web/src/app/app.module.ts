@@ -34,6 +34,7 @@ import {CustomUrlSerializer} from './utility/customUrlSerializer';
 import { PostService } from './service/post.service';
 import { UserService } from './service/user.service';
 import { GlobalService } from './service/global.service';
+import { AccountService } from './service/account.service';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { GlobalService } from './service/global.service';
   providers: [
     PostService,
     UserService,
+    AccountService,
     GlobalService,  // 全局数据存放在这里.
     { provide: UrlSerializer, useClass: CustomUrlSerializer }
   ],

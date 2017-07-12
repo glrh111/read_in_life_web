@@ -21,8 +21,18 @@ export class UserService {
 
   // 获取用户本人的相关信息
   // GET /user/
-  getSelfUser(): Observable<User> {
+  getMyself(): Observable<User> {
     let url = environment.api_url + "/user";
+
+    return this.http.get(url, {withCredentials: true})
+      .map(Utility.dealWithResponse('user'))
+      .catch(Utility.handleError);
+  }
+
+  // 获取某个用户的信息
+  // GET /user/:user_id
+  getUserById(user_id: number): Observable<User> {
+    let url = environment.api_url + "/user/" + user_id;
 
     return this.http.get(url, {withCredentials: true})
       .map(Utility.dealWithResponse('user'))

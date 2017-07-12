@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { PostService } from '../../service/post.service';
 import { Post } from '../../service/post';
@@ -11,7 +11,7 @@ import { markdown } from 'markdown';
   templateUrl: './post-detailed.component.html',
   styleUrls: ['./post-detailed.component.css']
 })
-export class PostDetailedComponent implements OnInit, AfterViewInit {
+export class PostDetailedComponent implements OnInit {
 
   post: Post;
   errorMessage: string;
@@ -42,9 +42,6 @@ export class PostDetailedComponent implements OnInit, AfterViewInit {
 
   }
 
-  ngAfterViewInit() {
-    console.log('in post-detailed ngAfterViewInit: ', this.post);
-  }
 
   parseMarkdown(that) {
 
