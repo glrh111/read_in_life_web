@@ -1,0 +1,27 @@
+.account-register {
+  margin: 10% auto;
+  display: block;
+  max-width: 800px;
+  min-height: 300px;
+  text-align: center;
+}
+
+md-input-container {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+}
+
+input {
+  display: block;
+}
+
+.account-register-button-group {
+  display: block;
+  text-align: center;
+}
+
+.account-register-button-group button {
+  display: inline-block;
+  bottom: 0;
+}

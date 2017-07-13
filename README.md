@@ -25,3 +25,11 @@
 3. 导入css `@import "~@angular/material/prebuilt-themes/indigo-pink.css";`
 
 4. `npm install --save hammerjs`
+
+## TODO
+
+1. 编辑文章的页面
+
+2. 我的信息展示页面. Good.
+
+3. 发表文章的流程

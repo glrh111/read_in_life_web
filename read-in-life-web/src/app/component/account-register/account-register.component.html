@@ -1,25 +1,43 @@
-<!-- 这是登录页面 -->
+<!-- 这是注册页面 -->
 <div class="account-register">
-  this is register
-  <!--&lt;!&ndash; 标题 &ndash;&gt;-->
-  <!--&lt;!&ndash;name="title" [formControl]="formC" required &ndash;&gt;-->
-  <!--<md-input-container>-->
-    <!--<input mdInput placeholder="标题" [(ngModel)]="title">-->
-  <!--</md-input-container>-->
 
-  <!--&lt;!&ndash; 摘要 &ndash;&gt;-->
-  <!--<md-input-container>-->
-    <!--<input mdInput placeholder="摘要" [(ngModel)]="abstract" name="abstract">-->
-  <!--</md-input-container>-->
+  <h3>注册</h3>
 
-  <!--&lt;!&ndash; 内容 &ndash;&gt;-->
-  <!--<md-input-container>-->
-    <!--<textarea mdInput placeholder="内容" [(ngModel)]="content" name="content"></textarea>-->
-  <!--</md-input-container>-->
+  <!-- 标题 -->
+  <!--name="title" [formControl]="formC" required -->
+  <md-input-container>
+    <input mdInput placeholder="用户名" [(ngModel)]="acc.username"
+           [formControl]="usernameFormControl" required>
+    <md-error *ngIf="usernameFormControl.hasError('required')">
+      用户名必填
+    </md-error>
+    <md-error *ngIf="usernameFormControl.hasError('pattern')">
+      用户名必须是英文字母或数字
+    </md-error>
+  </md-input-container>
 
+  <!-- 密码 -->
+  <md-input-container>
+    <input mdInput type="password" placeholder="密码" [(ngModel)]="acc.password"
+           name="password" [formControl]="passwordFormControl" required>
+    <md-error *ngIf="passwordFormControl.hasError('required')">
+      密码必填
+    </md-error>
+    <md-error *ngIf="passwordFormControl.hasError('pattern')">
+      密码必须是英文字母或数字或标点符号, 且至少3位.
+    </md-error>
+  </md-input-container>
 
+  <!-- 登录 注册 -->
+  <div class="account-register-button-group">
+    <button md-button color="primary" (click)="register()"
+            [disabled]="!(usernameFormControl.status=='VALID' && passwordFormControl.status=='VALID')">
+      注册
+    </button>
+  </div>
 
-
+  <md-chip color="primary">{{registerMessage}}</md-chip>
 
 </div>
+
 

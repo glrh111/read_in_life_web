@@ -11,7 +11,9 @@ import {
   MdToolbarModule,
   MdIconModule,
   MdInputModule,
-  MdDialogModule
+  MdDialogModule,
+  MdChipsModule,
+  MdMenuModule
 } from '@angular/material';
 import 'hammerjs';
 
@@ -62,12 +64,15 @@ import { AccountLoginComponent } from './component/account-login/account-login.c
     FormsModule,
     ReactiveFormsModule,
 
+    // md
     MdButtonModule,
     MdCheckboxModule,
     MdToolbarModule,
     MdIconModule,
     MdInputModule,
     MdDialogModule,
+    MdChipsModule,
+    MdMenuModule,
 
     AppRoutingModule
   ],
