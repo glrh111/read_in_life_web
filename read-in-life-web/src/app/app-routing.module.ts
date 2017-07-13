@@ -14,6 +14,7 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { UserComponent } from './user/user.component';
 import { PostDetailedComponent } from './component/post-detailed/post-detailed.component';
 import { PostEditComponent } from './component/post-edit/post-edit.component';
+import { MineComponent } from './mine/mine.component';
 
 // 登录注册模块
 import { AccountRegisterComponent } from './component/account-register/account-register.component';
@@ -27,6 +28,10 @@ const appRoutes: Routes = [
   {
     path: '#user',
     component: UserComponent,
+  },
+  {
+    path: '#mine',
+    component: MineComponent,
   },
   {
     path: '#post_detailed/:post_id',

@@ -10,6 +10,9 @@
 
   <!-- 用户头像(详情,退出登录), 登录/注册 -->
   <!-- 用户头像 -->
+
+  <span (click)="back()">返回</span>
+
   <span *ngIf="myself">
 
     <!-- 这里有一个下拉菜单 -->
@@ -19,7 +22,7 @@
     </button>
 
     <md-menu #menu="mdMenu">
-      <button md-menu-item [routerLink]="['/#user']">
+      <button md-menu-item [routerLink]="['/#mine']">
           我的
       </button>
       <button md-menu-item>新文章</button>

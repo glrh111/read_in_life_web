@@ -11,7 +11,8 @@ import 'rxjs/add/operator/map';
 
 import { Utility } from '../utility/utility';
 import { environment } from '../../environments/environment';
-import {User} from "./user";
+import { User } from "./user";
+import { UserPost } from './post';
 
 
 @Injectable()
@@ -36,6 +37,15 @@ export class UserService {
 
     return this.http.get(url, {withCredentials: true})
       .map(Utility.dealWithResponse('user'))
+      .catch(Utility.handleError);
+  }
+
+  // 获取用户本人的文章信息
+  getMyselfPostList(): Observable<UserPost> {
+    let url = environment.api_url + "/user/post";
+
+    return this.http.get(url, {withCredentials: true})
+      .map(Utility.dealWithResponse('post_list'))
       .catch(Utility.handleError);
   }
 

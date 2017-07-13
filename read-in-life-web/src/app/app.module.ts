@@ -13,7 +13,8 @@ import {
   MdInputModule,
   MdDialogModule,
   MdChipsModule,
-  MdMenuModule
+  MdMenuModule,
+  MdTabsModule
 } from '@angular/material';
 import 'hammerjs';
 
@@ -22,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { TimelineComponent } from './timeline/timeline.component';
 import { UserComponent } from './user/user.component';
+import { MineComponent } from './mine/mine.component';
 
 // 小组件
 import { PostBriefComponent } from './component/post-brief/post-brief.component';
@@ -43,7 +45,6 @@ import { AccountService } from './service/account.service';
 import { AccountLoginComponent } from './component/account-login/account-login.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import { AccountLoginComponent } from './component/account-login/account-login.c
     PostEditComponent,
     AccountRegisterComponent,
     AccountLoginComponent,
+    MineComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +75,7 @@ import { AccountLoginComponent } from './component/account-login/account-login.c
     MdDialogModule,
     MdChipsModule,
     MdMenuModule,
+    MdTabsModule,
 
     AppRoutingModule
   ],

@@ -1,0 +1,59 @@
+<!--
+mine-info
+---------------------------------
+|  用户 |  用户昵称                 mine-info-upper
+|  头像 |  用户motto               mine-info-upper-avatar | mine-info-upper-right ( penname, motto )
+|--------------------------------
+|
+|  未发表    |   已经发表    |       mine-info-posts
+| -------      --------   |
+|
+|
+|
+|
+|
+-->
+
+<div class="mine-info">
+
+  <!-- 上面的头像等信息 -->
+  <div class="mine-info-upper">
+
+    <!-- 头像 -->
+    <div class="mine-info-upper-avatar">
+      <img src="{{myself.avatar}}">
+    </div>
+
+    <!-- 右侧的信息 -->
+    <div class="mine-info-upper-right">
+      <div>{{myself.penname}}</div>
+      <div>{{myself.motto}}</div>
+    </div>
+
+  </div>
+
+  <!-- 下面的两个文章区域 -->
+  <div class="mine-info-posts">
+
+    <md-tab-group>
+      <!-- 下面是已发表和未发表的文章 -->
+      <md-tab *ngFor="let postLabel of postLabelList"
+              label="{{postLabel[1]}}">
+
+        <div *ngFor="let post of myselfPostList[postLabel[0]]" class="mine-info-every-post">
+          <app-post-brief  [post]="post" [if_display_user]="false">
+          </app-post-brief>
+        </div>
+
+
+      </md-tab>
+
+    </md-tab-group>
+
+  </div>
+
+
+
+
+
+</div>

@@ -1,0 +1,50 @@
+/* 整个页面 */
+.mine-info {
+  max-width: 800px;
+  overflow: hidden;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* 头像 + pennname + motto */
+.mine-info-upper {
+  white-space: nowrap;
+}
+
+/* 头像 */
+.mine-info-upper-avatar {
+  display: inline-block;
+  margin-right: 20px;
+}
+.mine-info-upper-avatar img {
+  display: inline-block;
+  height: 50px;
+  border-radius: 100%;
+  vertical-align: middle;
+}
+
+/* motto penname */
+.mine-info-upper-right {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.mine-info-upper-right div {
+  display: block;
+  font-size: smaller;
+  color: #7f7f7f;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* 下面的文章区域 */
+.mine-info-posts {
+  margin-top: 20px;
+}
+
+
+/* 文章之间加上下划线 */
+.mine-info-every-post {
+  border-bottom: 1px solid #eee;
+}

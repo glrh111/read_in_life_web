@@ -16,3 +16,9 @@ export class Post {
   is_self: boolean;
   user_info: User;
 }
+
+// 通过 /user/post 接口取到的用户的所有文章.
+export class UserPost {
+  not_published: Post[];
+  published: Post[];
+}

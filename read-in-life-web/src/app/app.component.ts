@@ -1,4 +1,7 @@
 import { Component, OnInit, AfterContentChecked } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { PostService } from './service/post.service';
 import { Post } from './service/post';
 import { UserService } from './service/user.service';
@@ -24,7 +27,9 @@ export class AppComponent implements OnInit, AfterContentChecked {
   constructor (
     private userService: UserService,
     private globalService: GlobalService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router,
+    private location: Location
   ) {}
 
   // 检查myself是否发生改变.
@@ -59,6 +64,10 @@ export class AppComponent implements OnInit, AfterContentChecked {
         data => console.log("log out", data),
         error => this.errorMessage = <any>error
       );
+  }
+
+  back() {
+    this.location.back();
   }
 
 }
