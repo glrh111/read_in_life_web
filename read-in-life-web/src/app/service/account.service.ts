@@ -49,20 +49,7 @@ export class AccountService {
   afterLogIn(that) {
     return function (res: Response) {
       let fun = Utility.dealWithResponse('code'); // (res: Response)=>any
-
-      let code = fun(res); // 1 success; 2 error
-
-      if (1==code) {
-        // 跳转到index
-        that.globalService.initMyself();
-        console.log("in afterLogIn");
-        that.router.navigate(['']);
-      } else {
-        // 提示密码错误
-        console.log("密码错误");
-      }
-
-      return code
+      return fun(res)
     }
 
   }
@@ -72,22 +59,24 @@ export class AccountService {
   // 并且将全局中的数据清理了
   logOut(): Observable<number> {
     let url = environment.api_url + "/account/log_out";
+    let that = this;
     console.log("in account service: log out ", url);
     return this.http.post(
       url,
-      JSON.stringify({}),
+      "",
       { withCredentials: true }
     )
-      .map(this.afterLogOut)
+      .map(this.afterLogOut(that))
       .catch(Utility.handleError);
   }
 
-  afterLogOut(res: Response) {
-    let fun = Utility.dealWithResponse('code');
-    this.globalService.initMyself();
-    return fun(res)
+  afterLogOut(that) {
+    return function (res: Response) {
+      let fun = Utility.dealWithResponse('code');
+      that.globalService.initMyself();
+      return fun(res)
+    }
   }
-
 
 
 }

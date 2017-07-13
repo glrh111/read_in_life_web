@@ -54,7 +54,11 @@ export class AppComponent implements OnInit, AfterContentChecked {
 
   logOut() {
     console.log("登录出去: in log out");
-    this.accountService.logOut();
+    this.accountService.logOut()
+      .subscribe(
+        data => console.log("log out", data),
+        error => this.errorMessage = <any>error
+      );
   }
 
 }

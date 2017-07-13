@@ -6,23 +6,33 @@
   <!-- 标题 -->
   <!--name="title" [formControl]="formC" required -->
   <md-input-container>
-    <input mdInput placeholder="用户名" [(ngModel)]="acc.username">
+    <input mdInput placeholder="用户名" [(ngModel)]="acc.username"
+           [formControl]="usernameFormControl" required>
+    <md-error *ngIf="usernameFormControl.hasError('required')">
+      用户名必填
+    </md-error>
   </md-input-container>
 
   <!-- 密码 -->
   <md-input-container>
-    <input mdInput type="password" placeholder="密码" [(ngModel)]="acc.password" name="password">
+    <input mdInput type="password" placeholder="密码" [(ngModel)]="acc.password"
+           name="password" [formControl]="passwordFormControl" required>
+    <md-error *ngIf="passwordFormControl.hasError('required')">
+      密码必填
+    </md-error>
   </md-input-container>
 
   <!-- 登录 注册 -->
   <div class="account-login-button-group">
     <button md-button>
-      注册
+      <a [routerLink]="['/#register']">注册</a>
     </button>
-    <button md-button color="primary" (click)="login()">
+    <button md-button color="primary" (click)="login()" [disabled]="!(acc.password && acc.username)">
       登录
     </button>
   </div>
+
+  <div class="login-message">{{loginMessage}}</div>
 
 </div>
 

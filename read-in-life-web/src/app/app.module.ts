@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import {
@@ -10,7 +10,8 @@ import {
   MdCheckboxModule,
   MdToolbarModule,
   MdIconModule,
-  MdInputModule
+  MdInputModule,
+  MdDialogModule
 } from '@angular/material';
 import 'hammerjs';
 
@@ -26,6 +27,7 @@ import { PostDetailedComponent } from './component/post-detailed/post-detailed.c
 import { NavigateToComponent } from './component/navigate-to/navigate-to.component';
 import { PostEditComponent } from './component/post-edit/post-edit.component';
 import { AccountRegisterComponent } from './component/account-register/account-register.component';
+// 对话框
 
 // 防止route替换#, 并传送到后端渲染
 import {UrlSerializer} from '@angular/router';
@@ -50,7 +52,7 @@ import { AccountLoginComponent } from './component/account-login/account-login.c
     NavigateToComponent,
     PostEditComponent,
     AccountRegisterComponent,
-    AccountLoginComponent
+    AccountLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,12 +60,14 @@ import { AccountLoginComponent } from './component/account-login/account-login.c
     HttpModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
 
     MdButtonModule,
     MdCheckboxModule,
     MdToolbarModule,
     MdIconModule,
     MdInputModule,
+    MdDialogModule,
 
     AppRoutingModule
   ],
