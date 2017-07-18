@@ -84,7 +84,7 @@ import { AccountLoginComponent } from './component/account-login/account-login.c
     UserService,
     AccountService,
     GlobalService,  // 全局数据存放在这里.
-    { provide: UrlSerializer, useClass: CustomUrlSerializer }
+    // { provide: UrlSerializer, useClass: CustomUrlSerializer }
   ],
   bootstrap: [AppComponent]
 })

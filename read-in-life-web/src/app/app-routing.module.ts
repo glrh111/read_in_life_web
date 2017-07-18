@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     component: MineComponent,
   },
   {
-    path: '#post_detailed/:post_id',
+    path: 'a_r/post_detailed/:post_id',
     component: PostDetailedComponent,
   },
   {
