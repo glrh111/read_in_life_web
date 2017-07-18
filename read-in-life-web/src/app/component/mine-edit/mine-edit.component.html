@@ -1,0 +1,47 @@
+<!-- 这是登录页面 -->
+<div class="account-login">
+
+  <h3>登录</h3>
+
+  <!-- 笔名 -->
+  <md-input-container>
+    <input mdInput placeholder="penname" [(formControl)]="pennameFormControl" required>
+    <md-error *ngIf="pennameFormControl.hasError('required')">
+      penname必填
+    </md-error>
+  </md-input-container>
+
+  <!-- motto -->
+  <md-input-container>
+    <input mdInput placeholder="motto" [(formControl)]="mottoFormControl" required>
+    <md-error *ngIf="mottoFormControl.hasError('required')">
+      motto必填
+    </md-error>
+  </md-input-container>
+
+  <!-- avatar -->
+  <md-input-container>
+    <input mdInput placeholder="avatar" [(formControl)]="avatarFormControl" required>
+    <md-error *ngIf="avatarFormControl.hasError('required')">
+      avatar必填
+    </md-error>
+  </md-input-container>
+
+
+  <!-- 修改 取消 -->
+  <div class="account-login-button-group">
+    <button md-button>
+      <a [routerLink]="['/a_r/mine']">取消</a>
+    </button>
+    <button md-button color="primary" (click)="edit()"
+            [disabled]="!(pennameFormControl.valid && mottoFormControl.valid && avatarFormControl.valid)">
+      修改
+    </button>
+  </div>
+
+  <md-chip *ngIf="updateMessage" color="primary">{{updateMessage}}</md-chip>
+
+</div>
+
+
+

@@ -56,7 +56,6 @@ export class AccountLoginComponent implements OnInit {
     return function (code: number) {
       if (1==code) {
         // 提示登录成功并且跳转
-        console.log("code==1");
         that.loginMessage = "登录成功";
         // 强制刷新相关信息
         that.globalService.initMyself();

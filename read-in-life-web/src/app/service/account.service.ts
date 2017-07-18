@@ -60,7 +60,6 @@ export class AccountService {
   logOut(): Observable<number> {
     let url = environment.api_url + "/account/log_out";
     let that = this;
-    console.log("in account service: log out ", url);
     return this.http.post(
       url,
       "",
@@ -81,7 +80,6 @@ export class AccountService {
   register(account: Account): Observable<number> {
     let url = environment.api_url + "/account/register";
     let that = this;
-    console.log("in account service: log out ", url);
     return this.http.post(
       url,
       JSON.stringify({username: account.username, password: account.password}),

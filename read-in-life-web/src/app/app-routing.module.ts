@@ -18,6 +18,7 @@ import { UserComponent } from './user/user.component';
 import { PostDetailedComponent } from './component/post-detailed/post-detailed.component';
 import { PostEditComponent } from './component/post-edit/post-edit.component';
 import { MineComponent } from './mine/mine.component';
+import { MineEditComponent } from './component/mine-edit/mine-edit.component';
 
 // 登录注册模块
 import { AccountRegisterComponent } from './component/account-register/account-register.component';
@@ -35,6 +36,10 @@ const appRoutes: Routes = [
   {
     path: 'a_r/mine',
     component: MineComponent,
+  },
+  {
+    path: 'a_r/mine_edit',
+    component: MineEditComponent,
   },
   {
     path: 'a_r/post_detailed/:post_id',

@@ -10,7 +10,6 @@ export class Utility {
   static dealWithResponse (field: string): ((res: Response)=>any) {
     return function (res: Response) {
       let body = res.json();
-      console.log("reveived: ", body);
       return body[field];
     }
   }
@@ -25,7 +24,6 @@ export class Utility {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    console.error(errMsg);
     return Observable.throw(errMsg);
   }
 

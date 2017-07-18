@@ -49,5 +49,20 @@ export class UserService {
       .catch(Utility.handleError);
   }
 
+  // 更新用户信息
+  // PUT /user/
+  // update_type: 1 password 2 other info
+  updateUserInfo(update_type: number, update_info: { [field: string]: any }): Observable<number> {
+    let url = environment.api_url + "/user";
+    update_info.update_type = update_type;
+    return this.http.put(
+      url,
+      JSON.stringify(update_info),
+      {withCredentials: true}
+    )
+      .map(Utility.dealWithResponse('code'))
+      .catch(Utility.handleError);
+  }
+
 
 }

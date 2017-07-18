@@ -38,7 +38,6 @@ export class AppComponent implements OnInit, AfterContentChecked {
   // 检查myself是否发生改变.
   ngAfterContentChecked() {
     this.myself = this.globalService.getMyself();
-    console.log('in AppComponent AfterContentChecked: ', this.title);
   }
 
   ngOnInit() {
@@ -52,7 +51,7 @@ export class AppComponent implements OnInit, AfterContentChecked {
     //     error => this.errorMessage = <any>error
     //   );
 
-    this.myself = this.globalService.getMyself(true);
+    this.globalService.getMyself(true);
     // this.userService.getSelfUser()
     //   .subscribe(
     //     data => this.user = data,
@@ -62,7 +61,6 @@ export class AppComponent implements OnInit, AfterContentChecked {
   }
 
   logOut() {
-    console.log("登录出去: in log out");
     this.accountService.logOut()
       .subscribe(
         data => console.log("log out", data),

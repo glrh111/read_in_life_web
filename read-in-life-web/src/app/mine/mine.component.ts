@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { GlobalService } from '../service/global.service';
 import { UserService } from '../service/user.service';
@@ -23,13 +24,24 @@ export class MineComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private globalService: GlobalService
+    private globalService: GlobalService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     // 判断这里边是否有信息, 如果没有的话, 强制全局数据刷新
+    let that = this;
     this.getMyselfPostList();
-    this.myself = this.globalService.getMyself();
+
+    // 获取我的最新信息
+    this.userService.getMyself()
+      .subscribe(
+        function (data) {
+          that.myself = data;
+        },
+        error => this.errorMessage = <any>error
+      );
+
     document.body.style.background = '#fff';
   }
 
@@ -39,6 +51,12 @@ export class MineComponent implements OnInit {
       .subscribe(
         data => this.myselfPostList = data,
         error => this.errorMessage = <any>error);
+  }
+
+  // edit 编辑个人信息
+  edit() {
+    if (!this.myself) return;
+    this.router.navigate(['/a_r/mine_edit']);
   }
 
 }

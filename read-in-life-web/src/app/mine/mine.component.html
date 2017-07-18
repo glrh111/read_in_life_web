@@ -17,7 +17,7 @@ mine-info
 <div class="mine-info">
 
   <!-- 上面的头像等信息 -->
-  <div class="mine-info-upper">
+  <div class="mine-info-upper" (click)="edit()" *ngIf="myself">
 
     <!-- 头像 -->
     <div class="mine-info-upper-avatar">

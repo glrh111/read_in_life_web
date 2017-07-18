@@ -31,7 +31,7 @@ import { PostDetailedComponent } from './component/post-detailed/post-detailed.c
 import { NavigateToComponent } from './component/navigate-to/navigate-to.component';
 import { PostEditComponent } from './component/post-edit/post-edit.component';
 import { AccountRegisterComponent } from './component/account-register/account-register.component';
-// 对话框
+import { MineEditComponent } from './component/mine-edit/mine-edit.component';
 
 // 防止route替换#, 并传送到后端渲染
 import {UrlSerializer} from '@angular/router';
@@ -43,6 +43,7 @@ import { UserService } from './service/user.service';
 import { GlobalService } from './service/global.service';
 import { AccountService } from './service/account.service';
 import { AccountLoginComponent } from './component/account-login/account-login.component';
+
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { AccountLoginComponent } from './component/account-login/account-login.c
     AccountRegisterComponent,
     AccountLoginComponent,
     MineComponent,
+    MineEditComponent,
   ],
   imports: [
     BrowserModule,
