@@ -60,3 +60,9 @@
   border: 1px solid #62b900;
 }
 
+:host >>> .post-detailed-content img {
+  display: block;
+  max-width: 90%;
+  margin: 0 auto;
+}
+

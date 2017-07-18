@@ -103,7 +103,7 @@ export class PostEditComponent implements OnInit {
         // 提示更新成功
         that.okMessage = "更新成功";
         // 跳转到
-        that.router.navigate(['/a_r/post_detailed', that.post.post_id], {skipLocationChange: true});
+        that.router.navigate(['/a_r/post_detailed', that.post.post_id]);
       } else {
         // 提示登录失败
         that.okMessage = "更新失败,请稍后再试";
