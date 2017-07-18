@@ -17,15 +17,17 @@
     <div class="post-detailed-info-utime">{{post.utime | date:'short'}}</div>
     <div class="post-detailed-info-penname">{{post.user_info.penname}}</div>
 
-    <!-- 两个按钮 -->
-    <a [routerLink]="['/#post_edit', post.post_id]">
-      <div class="post-detailed-info-edit">
-        编辑
+    <!-- 两个按钮: 只有是本人的时候, 才显示出来 -->
+    <div *ngIf="post.is_self">
+      <a [routerLink]="['/a_r/post_edit', post.post_id]">
+        <div class="post-detailed-info-edit">
+          编辑
+        </div>
+      </a>
+      <!-- 弹出框 -->
+      <div class="post-detailed-info-publish" (click)="edit()">
+        {{publishButtonContent}}
       </div>
-    </a>
-    <!-- 弹出框 -->
-    <div class="post-detailed-info-publish" (click)="publish()">
-      {{publishButtonContent}}
     </div>
 
   </div>

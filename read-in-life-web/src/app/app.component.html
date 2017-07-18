@@ -1,31 +1,31 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
 <!-- 放一个工具条 -->
-<!-- 图标 ----- 空余 ------- 个人头像 -->
+<!-- 图标<md-icon>home</md-icon>  ----- 空余 ------- 个人头像 -->
 <md-toolbar color="primary">
-  <span><a [routerLink]="['/']"><md-icon>home</md-icon> 风雨穿行</a></span>
+  <span><button md-button [routerLink]="['/']">风雨穿行</button></span>
 
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
 
-  <!-- 用户头像(详情,退出登录), 登录/注册 -->
-  <!-- 用户头像 -->
-
-  <span (click)="back()">返回</span>
+  <span (click)="back()">
+    <button md-button>
+      <md-icon>chevron_left</md-icon>
+    </button>
+  </span>
 
   <span *ngIf="myself">
 
     <!-- 这里有一个下拉菜单 -->
     <button md-button [mdMenuTriggerFor]="menu">
       <img class="toolbar-img" src="{{myself.avatar}}">
-
     </button>
 
     <md-menu #menu="mdMenu">
-      <button md-menu-item [routerLink]="['/#mine']">
+      <button md-menu-item [routerLink]="['/a_r/mine']">
           我的
       </button>
-      <button md-menu-item>新文章</button>
+      <button md-menu-item (click)="newPost()">新文章</button>
       <button md-menu-item (click)="logOut()" class="inline-button">LogOut</button>
       <!--<button md-menu-item>Item 2</button>-->
     </md-menu>
@@ -36,12 +36,15 @@
   <span *ngIf="!myself">
 
     <!-- 跳转到登录页面 -->
-    <a [routerLink]="['/#login']">登录</a>
+    <a [routerLink]="['/a_r/login']">登录</a>
 
   </span>
 
 </md-toolbar>
 
+<div *ngIf="newPostMessage" class="new-post-message">
+  <md-chip color="primary">{{newPostMessage}}</md-chip>
+</div>
 
 <router-outlet></router-outlet>
 

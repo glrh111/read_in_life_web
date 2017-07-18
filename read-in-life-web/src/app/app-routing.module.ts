@@ -5,6 +5,9 @@
  * /post 文章详情页面
  * /edit-post 编辑新建文章页面
  * /timeline  首页(默认显示这一页)
+ *
+ * a_r means angular route . 这个路由转发规则, 配置在nginx上面.
+ *
  */
 import { NgModule }     from '@angular/core';
 import {
@@ -22,15 +25,15 @@ import { AccountLoginComponent } from './component/account-login/account-login.c
 
 const appRoutes: Routes = [
   {
-    path: '#timeline',
+    path: 'a_r/timeline',
     component: TimelineComponent,
   },
   {
-    path: '#user',
+    path: 'a_r/user',
     component: UserComponent,
   },
   {
-    path: '#mine',
+    path: 'a_r/mine',
     component: MineComponent,
   },
   {
@@ -38,17 +41,17 @@ const appRoutes: Routes = [
     component: PostDetailedComponent,
   },
   {
-    path: '#post_edit/:post_id',
+    path: 'a_r/post_edit/:post_id',
     component: PostEditComponent,
   },
 
   // 登录注册相关
   {
-    path: '#register',
+    path: 'a_r/register',
     component: AccountRegisterComponent,
   },
   {
-    path: '#login',
+    path: 'a_r/login',
     component: AccountLoginComponent,
   },
 

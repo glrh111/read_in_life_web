@@ -17,6 +17,7 @@ import { environment } from '../../environments/environment';
 import { User } from "./user";
 import { UserPost } from './post';
 import { UserService } from "./user.service";
+import {window} from "rxjs/operator/window";
 
 
 @Injectable()
@@ -28,6 +29,8 @@ export class GlobalService {
   myselfPostList: UserPost;
 
   errorMessage: string;
+
+  historyLength: number;  // 应用初始化的时候, history的length
 
 
   // 获取用户本人的相关信息
@@ -60,6 +63,15 @@ export class GlobalService {
       this.initMyselfPostList()
     }
     return this.myselfPostList
+  }
+
+
+  getHistoryLength(): number {
+    return this.historyLength
+  }
+
+  initHistoryLength(l: number) {
+    this.historyLength = l;
   }
 
 

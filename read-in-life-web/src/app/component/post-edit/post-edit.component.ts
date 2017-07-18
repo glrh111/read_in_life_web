@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, Params } from '@angular/router';
-import {FormControl, Validators} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
 
 import { PostService } from '../../service/post.service';
 import { Post } from '../../service/post';
@@ -16,23 +16,40 @@ export class PostEditComponent implements OnInit {
   post: Post;
   errorMessage: string;
 
-  title: string;
-  abstract: string;
-  content: string;
+  // titleFormControl: FormControl;
+  // abstractFormControl: FormControl;
+  // contentFormControl: FormControl;
+  title: String;
+  abstract: String;
+  content: String;
 
-  // formC = new FormControl('', [
-  //   Validators.required
-  // ]);
+  okMessage: string;
 
   constructor(
     private postService: PostService,
     private route: ActivatedRoute,
     private router: Router,
 
-  ) { }
+  ) {
+
+  }
 
   ngOnInit() {
     document.body.style.background = "#ffffff";
+
+    // this.titleFormControl = new FormControl(
+    //   '',
+    //   [Validators.required]
+    // );
+    // this.abstractFormControl = new FormControl(
+    //   '',
+    //   [Validators.required]
+    // );
+    // this.contentFormControl = new FormControl(
+    //   '',
+    //   [Validators.required]
+    // );
+
     let post_id = +this.route.snapshot.params['post_id'];
     let that = this;
     // get post by post_id
@@ -47,7 +64,11 @@ export class PostEditComponent implements OnInit {
 
     return function (data: Post) {
       that.post = data;
+
       // parse
+      // that.titleFormControl.setValue(that.post.title);
+      // that.abstractFormControl.setValue(that.post.abstract);
+      // that.contentFormControl.setValue(that.post.content);
 
       that.title = that.post.title;
       that.abstract = that.post.abstract;
@@ -58,11 +79,36 @@ export class PostEditComponent implements OnInit {
 
   // 编辑完成: 跳转到这一篇文章的详情页面
   ok() {
+    let that = this;
+    this.postService.updateAPost(
+      this.post.post_id,
+      1,
+      {
+        title: that.title,
+        abstract: that.abstract,
+        content: that.content
+      }
+    )
+      .subscribe(
+        this.afterOk(that),
+        error => this.errorMessage = <any>error
+      );
 
   }
 
-  // 取消编辑: 提示保存
-  cancel() {
+  afterOk(that) {
+
+    return function (code: number) {
+      if (1==code) {
+        // 提示更新成功
+        that.okMessage = "更新成功";
+        // 跳转到
+        that.router.navigate(['/a_r/post_detailed', that.post.post_id], {skipLocationChange: true});
+      } else {
+        // 提示登录失败
+        that.okMessage = "更新失败,请稍后再试";
+      }
+    }
 
   }
 

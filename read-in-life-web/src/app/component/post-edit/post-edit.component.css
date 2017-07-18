@@ -1,0 +1,25 @@
+.post-edit {
+  margin: 0 auto 50px auto;
+  display: block;
+  max-width: 800px;
+  text-align: center;
+}
+
+md-input-container {
+  display: block;
+  /*width: 100%;*/
+  /*margin: 1em;*/
+
+  padding: 1em;
+}
+
+textarea {
+  /*height: auto;*/
+  resize: none;
+  /*overflow: hidden;*/
+  /*min-height: 30px;*/
+}
+
+input {
+  display: block;
+}

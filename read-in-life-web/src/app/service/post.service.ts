@@ -24,7 +24,7 @@ export class PostService {
   getTimelingPostList(): Observable<Post[]> {
     let url = environment.api_url + "/post";
 
-    return this.http.get(url)
+    return this.http.get(url, {withCredentials: true})
       .map(Utility.dealWithResponse('post_list'))
       .catch(Utility.handleError);
   }
@@ -32,26 +32,38 @@ export class PostService {
   getPostBYPostId(post_id: number): Observable<Post> {
     let url = environment.api_url + "/post/" + post_id;
 
-    return this.http.get(url)
+    return this.http.get(url, {withCredentials: true})
       .map(Utility.dealWithResponse('post'))
       .catch(Utility.handleError);
   }
 
-  // 获取某个用户的文章列表
-  // GET /post/<user_id>
-  getUserPostList(user_id) {
-
+  // 更新post的信息
+  // PUT /post/:post_id
+  // update_type: 1 content; 2 permission
+  updateAPost(post_id: number, update_type: number, update_info: { [field: string]: any; }): Observable<number> {
+    let url = environment.api_url + "/post/" + post_id;
+    update_info.update_type = update_type;
+    return this.http.put(
+      url,
+      JSON.stringify(update_info),
+      {withCredentials:true}
+    )
+      .map(Utility.dealWithResponse('code'))
+      .catch(Utility.handleError);
   }
 
-  // 获取用户自己的文章列表
-  // GET /user/post
-  getSelfPostList() {
+  // 新建文章
+  // POST /post/
+  newAPost(): Observable<Post> {
+    let url = environment.api_url + "/post/";
 
+    return this.http.post(
+      url,
+      '',
+      {withCredentials:true}
+    )
+      .map(Utility.dealWithResponse('post'))
+      .catch(Utility.handleError);
   }
-
-
-
-
-
 
 }

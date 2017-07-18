@@ -22,6 +22,8 @@ export class AppComponent implements OnInit, AfterContentChecked {
   postList = [];
   errorMessage: string;
 
+  newPostMessage: string;
+
   myself: User;
 
   constructor (
@@ -29,7 +31,8 @@ export class AppComponent implements OnInit, AfterContentChecked {
     private globalService: GlobalService,
     private accountService: AccountService,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private postService: PostService
   ) {}
 
   // 检查myself是否发生改变.
@@ -39,6 +42,7 @@ export class AppComponent implements OnInit, AfterContentChecked {
   }
 
   ngOnInit() {
+    let that = this;
     // let acc = new Account();
     // acc.username = 'glrh111';
     // acc.password = '111';
@@ -48,13 +52,13 @@ export class AppComponent implements OnInit, AfterContentChecked {
     //     error => this.errorMessage = <any>error
     //   );
 
-
     this.myself = this.globalService.getMyself(true);
     // this.userService.getSelfUser()
     //   .subscribe(
     //     data => this.user = data,
     //     error => this.errorMessage = <any>error);
 
+    this.globalService.initHistoryLength(window.history.length);
   }
 
   logOut() {
@@ -66,8 +70,43 @@ export class AppComponent implements OnInit, AfterContentChecked {
       );
   }
 
+  // 程序初始化的时候, 记录下history的长度.
+  // 防止返回的时候跳出程序
   back() {
-    this.location.back();
+    let now_length: number = window.history.length;
+    let init_length: number = this.globalService.getHistoryLength();
+    if (now_length > init_length) {
+      this.location.back();
+    } else {
+      this.router.navigate(['/']);
+    }
+  }
+
+  newPost() {
+    let that = this;
+    this.postService.newAPost()
+      .subscribe(
+        this.afterNewPost(that),
+        error => this.errorMessage = <any>error
+      );
+  }
+
+  afterNewPost(that) {
+    return function (post: Post) {
+      if (post) {
+        // 提示更新成功
+        that.newPostMessage = "新建文章成功";
+        // 跳转到
+        that.router.navigate(['/a_r/post_edit', post.post_id]);
+      } else {
+        // 提示建立文章失败
+        that.newPostMessage = "创建新文章失败, 请稍后再试.";
+      }
+      // 框框消失
+      setTimeout(function () {
+        that.newPostMessage = "";
+      }, 3000)
+    }
   }
 
 }
