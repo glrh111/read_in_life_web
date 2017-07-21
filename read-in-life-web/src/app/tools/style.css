@@ -1,0 +1,23 @@
+/* 输入框, 结果框 灰色线条 */
+.tools-input, .tools-result {
+  border: 1px solid gray;
+  padding: 2px 10px;
+}
+
+.tools-button {
+  display: inline-block;
+  height: 25px;
+  text-align: center;
+  padding: 2px 10px;
+}
+
+/* 按钮 */
+.tools-button {
+  border: 1px solid blue;
+}
+
+.tools-button:hover {
+  cursor: pointer;
+}
+
+

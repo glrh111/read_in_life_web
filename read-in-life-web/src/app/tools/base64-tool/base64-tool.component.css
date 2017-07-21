@@ -1,0 +1,26 @@
+@import "../style.css";
+
+.base64-tool {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.base64-tool-tabs {
+  text-align: left;
+}
+
+/* 每一个tab里边的内容 */
+.base64-tool-each-tab div {
+  margin: 20px 0;
+}
+
+.base64-tool-each-tab-input, .base64-tool-each-tab-result {
+  min-height: 100px;
+  word-wrap: break-word;
+}
+
+
+
+

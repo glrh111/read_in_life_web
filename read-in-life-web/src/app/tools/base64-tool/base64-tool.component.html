@@ -1,0 +1,114 @@
+<!--
+base64
+参考: http://base64.xpcha.com/
+
+字符编码 | 图像编码
+---------------------
+
+<label>请输入要编码或解码的字符
+textarea
+
+编码 | 解码 | 清空
+
+another textarea
+
+---------------------
+
+select pics | 或者输入图片的url? | 编码
+
+textarea
+
+-->
+
+<div class="base64-tool">
+
+  <h3>base64编码工具</h3>
+
+  <div class="base64-tool-tabs">
+    <md-tab-group>
+      <!-- 下面是已发表和未发表的文章 -->
+      <md-tab label="字符编码">
+
+
+        <div class="base64-tool-each-tab">
+
+          <!-- 标签: 说明文字 -->
+          <div class="base64-tool-each-tab-label">
+            请输入要进行编码或解码的字符：
+          </div>
+
+          <!-- 输入框:  -->
+          <div class="base64-tool-each-tab-input tools-input" contenteditable="true"
+               [(textContent)]="rawString"
+               (input)="rawString=$event.target.textContent">
+          </div>
+
+          <!-- 编码 -->
+          <div class="base64-tool-each-tab-button tools-button" (click)="encodeString()">
+            编码
+          </div>
+
+          <!-- 解码 -->
+          <div class="base64-tool-each-tab-button tools-button" (click)="decodeString()">
+            解码
+          </div>
+
+          <!-- 清空 -->
+          <div class="base64-tool-each-tab-button tools-button" (click)="clearString()">
+            清空
+          </div>
+
+          <!-- 结果框 -->
+          <!-- 清空 -->
+          <div class="base64-tool-each-tab-result tools-result">
+            {{resultString}}
+          </div>
+
+        </div>
+
+
+
+      </md-tab>
+
+      <md-tab label="图像编码">
+
+        <div class="base64-tool-each-tab">
+
+          <!--&lt;!&ndash; 标签: 说明文字 &ndash;&gt;-->
+          <!--<div class="base64-tool-each-tab-label">-->
+            <!--选择图片!!-->
+          <!--</div>-->
+
+          <!-- 图片选择框 -->
+          <input id="beingEncodeImage" type="file">
+
+          <!-- 编码 -->
+          <div class="base64-tool-each-tab-button tools-button" (click)="encodeImage()">
+            编码
+          </div>
+
+          <!-- 清空 -->
+          <div class="base64-tool-each-tab-button tools-button" (click)="clearImageString()">
+            清空
+          </div>
+
+          <!-- 结果框 -->
+          <!-- 清空 -->
+          <div class="base64-tool-each-tab-result tools-result">
+            {{resultImageString}}
+          </div>
+
+        </div>
+
+      </md-tab>
+
+
+    </md-tab-group>
+
+  </div>
+
+  <!-- base64编码说明 -->
+
+
+
+</div>

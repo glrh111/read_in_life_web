@@ -18,6 +18,8 @@ import {
 } from '@angular/material';
 import 'hammerjs';
 
+import { MaterialUiModule } from './material-ui/material-ui.module';
+
 // 特性模块
 import { ToolsModule } from './tools/tools.module';
 
@@ -75,15 +77,7 @@ import { AccountLoginComponent } from './component/account-login/account-login.c
     ToolsModule,
 
     // md
-    MdButtonModule,
-    MdCheckboxModule,
-    MdToolbarModule,
-    MdIconModule,
-    MdInputModule,
-    MdDialogModule,
-    MdChipsModule,
-    MdMenuModule,
-    MdTabsModule,
+    MaterialUiModule,
 
     AppRoutingModule
   ],

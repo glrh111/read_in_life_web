@@ -19,9 +19,14 @@ export class ToolsListComponent implements OnInit {
         '时间戳转换'
       ),
       new Tool(
-        '/a_r/tools/unix_time',
+        '/a_r/tools/parse_json',
         'http://o9hjg7h8u.bkt.clouddn.com/',
-        '第二个时间戳转换'
+        'JSON格式化'
+      ),
+      new Tool(
+        '/a_r/tools/base64_tool',
+        'http://o9hjg7h8u.bkt.clouddn.com/',
+        'base64工具'
       ),
     ];
   }

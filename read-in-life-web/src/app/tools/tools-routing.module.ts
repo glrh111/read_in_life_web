@@ -5,9 +5,13 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UnixTimeComponent }    from './unix-time/unix-time.component';
 import { ToolsListComponent } from './tools-list/tools-list.component';
+import { ParseJsonComponent } from './parse-json/parse-json.component';
+import { Base64ToolComponent } from './base64-tool/base64-tool.component';
 
 const toolsRoutes: Routes = [
   { path: 'a_r/tools/unix_time',  component: UnixTimeComponent },
+  { path: 'a_r/tools/parse_json',  component: ParseJsonComponent },
+  { path: 'a_r/tools/base64_tool',  component: Base64ToolComponent },
 
   { path: 'a_r/tools/tools_list',  component: ToolsListComponent }
 ];
