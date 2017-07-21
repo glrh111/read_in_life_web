@@ -21,6 +21,7 @@ export class UnixTimeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.nowTimeStart();
   }
 
   time13ToDatestr() {
@@ -59,6 +60,35 @@ export class UnixTimeComponent implements OnInit {
     });
     dateStrList.push(0);
     this.time13Lower = moment(dateStrList).tz("Asia/Shanghai").valueOf();
+  }
+
+  // 下面几个函数, 处理当前的实时时间戳
+  nowTime13: number;
+  nowTimer;
+
+  addTimer() {
+    //
+    let that = this;
+    this.nowTimer = setInterval(function () {
+      that.nowTime13 = moment().valueOf();
+    }, 500);
+  }
+
+  removeTimer() {
+    window.clearInterval(this.nowTimer);
+  }
+
+  nowTimeStart() {
+    this.removeTimer();
+    this.addTimer();
+  }
+
+  nowTimeStop() {
+    this.removeTimer();
+  }
+
+  nowTimeRefresh() {
+    this.nowTime13 = moment().valueOf();
   }
 
 }

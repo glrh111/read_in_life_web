@@ -22,6 +22,27 @@ label(unix时间戳) input(一个框 (毫秒)) 按钮(转换成北京时间) div
   <!-- 显示当前的时间相关的东西
        现在的Unix时间戳(Unix timestamp)是: input 开始 停止 刷新
   -->
+  <div class="tool-unix-time-func-div">
+    <div class="tool-unix-time-label">现在的unix时间戳</div>
+
+    <div class="tool-unix-time-result">
+      {{nowTime13}}
+    </div>
+
+    <div class="tool-unix-time-button small-button" (click)="nowTimeStart()">
+      开始
+    </div>
+
+    <div class="tool-unix-time-button small-button" (click)="nowTimeStop()">
+      停止
+    </div>
+
+    <div class="tool-unix-time-button small-button" (click)="nowTimeRefresh()">
+      刷新
+    </div>
+
+  </div>
+
 
 
   <!-- 时间戳 转换为 字符串 -->

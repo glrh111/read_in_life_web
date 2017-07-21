@@ -51,4 +51,8 @@
   border: 1px solid gray;
 }
 
+.small-button {
+  min-width: 0 !important;
+}
+
 
