@@ -1,0 +1,17 @@
+<div class="tools-list">
+
+  <div class="tools-list-item"
+       *ngFor="let tool of tools_list"
+       [routerLink]="[tool.path]">
+
+    <img [src]="tool.icon">
+
+    <div>
+      {{tool.name}}
+    </div>
+
+
+  </div>
+
+
+</div>

@@ -18,6 +18,9 @@ import {
 } from '@angular/material';
 import 'hammerjs';
 
+// 特性模块
+import { ToolsModule } from './tools/tools.module';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -67,6 +70,9 @@ import { AccountLoginComponent } from './component/account-login/account-login.c
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+
+    // 自定义模块
+    ToolsModule,
 
     // md
     MdButtonModule,
