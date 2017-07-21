@@ -1,0 +1,54 @@
+.tool-unix-time {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tool-unix-time-func-div {
+  border-bottom: 1px solid #eee;
+  margin: 30px 0;
+  padding: 10px 0;
+}
+
+.tool-unix-time-func-div div {
+  display: inline-block;
+  height: 25px;
+  min-width: 100px;
+  text-align: right;
+  padding: 2px 10px;
+}
+
+/* 输入框, 结果框 灰色线条 */
+.tool-unix-time-input, .tool-unix-time-result {
+  border: 1px solid gray;
+}
+
+/* 按钮 */
+.tool-unix-time-button {
+  border: 1px solid blue;
+}
+
+.tool-unix-time-button:hover {
+  cursor: pointer;
+}
+
+/* 显示转换结果 */
+.tool-unix-time-result {
+
+}
+
+/* 里边包括一个: small, span */
+.tool-unix-time-input-small-outer {
+  margin: 0;
+  padding: 0 !important;
+  min-width: 0 !important;
+
+}
+
+/* 小的输入框 */
+.tool-unix-time-input-small {
+  min-width: 20px !important;
+  border: 1px solid gray;
+}
+
+

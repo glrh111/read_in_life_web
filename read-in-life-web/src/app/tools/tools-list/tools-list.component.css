@@ -9,6 +9,8 @@
   margin: 0 20px 20px 0;
   float: left;
   text-align: center;
+  width: 100px;
+  overflow: hidden;
 }
 
 .tools-list-item:hover{
@@ -16,7 +18,12 @@
 }
 
 .tools-list-item img {
-  height: 100px;
-  width: 100px;
+  width: 100%;
   border-radius: 5px;
+}
+
+.tools-list-item-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

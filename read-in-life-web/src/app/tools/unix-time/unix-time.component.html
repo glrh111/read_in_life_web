@@ -1,3 +1,79 @@
-<p>
-  unix-time works!
-</p>
+<!--
+
+
+label(unix时间戳) input(一个框 (毫秒)) 按钮(转换成北京时间) div(一个框)
+
+
+
+
+
+-->
+
+
+
+
+
+<div class="tool-unix-time">
+
+  <h2>时间戳转换</h2>
+
+  <!-- 显示一个大钟表 -->
+
+  <!-- 显示当前的时间相关的东西
+       现在的Unix时间戳(Unix timestamp)是: input 开始 停止 刷新
+  -->
+
+
+  <!-- 时间戳 转换为 字符串 -->
+  <div class="tool-unix-time-func-div">
+
+    <div class="tool-unix-time-label">unix时间戳(ms)</div>
+
+    <div class="tool-unix-time-input" contenteditable="true"
+         [(textContent)]="time13Upper"
+         (input)="time13Upper=$event.target.textContent">
+    </div>
+
+    <div class="tool-unix-time-button" (click)="time13ToDatestr()">
+      转换为北京时间
+    </div>
+
+    <div class="tool-unix-time-result">
+      {{datestrUpper}}
+    </div>
+
+  </div>
+
+  <!-- 字符串 转换为 时间戳 -->
+  <div class="tool-unix-time-func-div">
+
+    <div class="tool-unix-time-label">北京时间</div>
+
+    <div class="tool-unix-time-input-group">
+
+      <div *ngFor="let field of dateFieldList; let i=index" class="tool-unix-time-input-small-outer">
+        <div class="tool-unix-time-input-small"
+             contenteditable="true"
+             [id]="field">
+        </div>
+        <span>{{dateFieldListMeaning[i]}}</span>
+      </div>
+
+    </div>
+
+
+    <div class="tool-unix-time-button" (click)="datestrToTime13()">
+      转换为时间戳
+    </div>
+
+    <div class="tool-unix-time-result">
+      {{time13Lower}}
+    </div>
+
+  </div>
+
+
+
+
+
+</div>
