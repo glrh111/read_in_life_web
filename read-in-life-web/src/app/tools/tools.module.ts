@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialUiModule } from '../material-ui/material-ui.module';
 
@@ -18,6 +18,7 @@ import { Base64ToolComponent } from './base64-tool/base64-tool.component';
     CommonModule,
     FormsModule,
     MaterialUiModule,
+    ReactiveFormsModule,
 
     ToolsRoutingModule
   ],

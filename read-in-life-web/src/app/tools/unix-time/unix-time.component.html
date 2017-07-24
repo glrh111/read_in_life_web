@@ -56,19 +56,30 @@ label(unix时间戳) input(一个框 (毫秒)) 按钮(转换成北京时间) div
     </div>
 
     <div class="tool-unix-time-button" (click)="time13ToDatestr()">
-      转换为北京时间
+      转换为字符串
     </div>
 
     <div class="tool-unix-time-result">
       {{datestrUpper}}
     </div>
 
+    <md-input-container>
+      <input type="text" mdInput [formControl]="upperCtrl"
+             [mdAutocomplete]="autoUpper" placeholder="选择时区">
+    </md-input-container>
+
+    <md-autocomplete #autoUpper="mdAutocomplete">
+      <md-option *ngFor="let option of filteredTimezoneListUpper | async" [value]="option">
+        {{ option }}
+      </md-option>
+    </md-autocomplete>
+
   </div>
 
   <!-- 字符串 转换为 时间戳 -->
   <div class="tool-unix-time-func-div">
 
-    <div class="tool-unix-time-label">北京时间</div>
+    <div class="tool-unix-time-label">填写时间</div>
 
     <div class="tool-unix-time-input-group">
 
@@ -90,6 +101,17 @@ label(unix时间戳) input(一个框 (毫秒)) 按钮(转换成北京时间) div
     <div class="tool-unix-time-result">
       {{time13Lower}}
     </div>
+
+    <md-input-container>
+      <input type="text" mdInput [formControl]="lowerCtrl"
+             [mdAutocomplete]="autoLower" placeholder="选择时区">
+    </md-input-container>
+
+    <md-autocomplete #autoLower="mdAutocomplete">
+      <md-option *ngFor="let option of filteredTimezoneListLower | async" [value]="option">
+        {{ option }}
+      </md-option>
+    </md-autocomplete>
 
   </div>
 

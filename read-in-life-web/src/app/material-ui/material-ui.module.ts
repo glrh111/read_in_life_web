@@ -10,7 +10,9 @@ import {
   MdDialogModule,
   MdChipsModule,
   MdMenuModule,
-  MdTabsModule
+  MdTabsModule,
+  MdAutocompleteModule,
+  MdCheckbox
 } from '@angular/material';
 import 'hammerjs';
 
@@ -39,7 +41,9 @@ import 'hammerjs';
     MdDialogModule,
     MdChipsModule,
     MdMenuModule,
-    MdTabsModule
+    MdTabsModule,
+    MdAutocompleteModule,
+    MdCheckbox
   ]
 })
 export class MaterialUiModule { }
