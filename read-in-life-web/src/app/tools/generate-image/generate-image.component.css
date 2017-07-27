@@ -1,0 +1,26 @@
+@import "../style.css";
+
+.generage-image {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.line-of-button div,md-input-container {
+  display: inline-block;
+}
+
+.background-color-div {
+  width: 30px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+canvas {
+  margin-top: 20px;
+}
+
+
+
+

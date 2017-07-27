@@ -28,6 +28,11 @@ export class ToolsListComponent implements OnInit {
         'http://o9hjg7h8u.bkt.clouddn.com/',
         'base64工具'
       ),
+      new Tool(
+        '/a_r/tools/generate_image',
+        'http://o9hjg7h8u.bkt.clouddn.com/',
+        '图片生成'
+      ),
     ];
   }
 

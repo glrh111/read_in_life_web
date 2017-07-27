@@ -1,0 +1,111 @@
+<!--
+参考:
+https://stackoverflow.com/questions/923885/capture-html-canvas-as-gif-jpg-png-pdf
+var canvas = document.getElementById("mycanvas");
+var img    = canvas.toDataURL("image/png");
+document.write('<img src="'+img+'"/>');
+
+图片生成工具
+
+----------------------------
+
+背景颜色input, 背景颜色div
+文字input, 重复多少次input
+图像宽px input, 高px input, 分辨率input(ppi)
+
+        生成(button)
+
+
+< image_area >
+image_area
+
+-->
+
+<div class="generage-image">
+
+  <h3>图片生成工具</h3>
+
+  <div class="generage-image-input-area">
+
+
+    <!-- 背景颜色input, 背景颜色div -->
+    <div class="line-of-button">
+
+      <md-input-container>
+        <input mdInput placeholder="背景颜色" [(ngModel)]="canvasImage.backgroundColor" >
+      </md-input-container>
+
+      <div class="background-color-div" [ngStyle]="changeImageBackground(1)">
+
+      </div>
+
+
+      <md-input-container>
+        <input mdInput placeholder="文本颜色" [(ngModel)]="canvasImage.textColor" >
+      </md-input-container>
+
+      <div class="background-color-div" [ngStyle]="changeImageBackground(2)"> <!-- 文本2 -->
+
+      </div>
+
+    </div>
+
+    <!--文字input, 重复多少次input-->
+    <div class="line-of-button">
+
+      <md-input-container>
+        <input mdInput placeholder="内容" [(ngModel)]="canvasImage.content" >
+      </md-input-container>
+
+      <!--<md-input-container>-->
+        <!--<input mdInput placeholder="重复次数" [(ngModel)]="canvasImage.times" >-->
+      <!--</md-input-container>-->
+
+      <md-input-container>
+        <input mdInput placeholder="字体大小(px)" [(ngModel)]="canvasImage.fontSize" >
+      </md-input-container>
+
+    </div>
+
+    <!--图像宽px input, 高px input, 分辨率input(ppi)-->
+    <div class="line-of-button">
+
+      <md-input-container>
+        <input mdInput placeholder="Width(px)" [(ngModel)]="canvasImage.width" >
+      </md-input-container>
+
+      <md-input-container>
+        <input mdInput placeholder="Height(px)" [(ngModel)]="canvasImage.height" >
+      </md-input-container>
+
+      <!--<md-input-container>-->
+        <!--<input mdInput placeholder="PPI" [(ngModel)]="canvasImage.ppi" >-->
+      <!--</md-input-container>-->
+
+    </div>
+
+    <!-- 生成按钮 -->
+    <div class="line-of-button">
+      <div class="generage-image-input-area-button tools-button" (click)="generateImage()">
+        Generate
+      </div>
+    </div>
+
+    <!-- 隐藏的canvas -->
+    <canvas #canvas>
+
+    </canvas>
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+</div>

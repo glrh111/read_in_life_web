@@ -12,6 +12,7 @@ import { ToolsRoutingModule } from './tools-routing.module';
 import { ToolsListComponent } from './tools-list/tools-list.component';
 import { ParseJsonComponent } from './parse-json/parse-json.component';
 import { Base64ToolComponent } from './base64-tool/base64-tool.component';
+import { GenerateImageComponent } from './generate-image/generate-image.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,8 @@ import { Base64ToolComponent } from './base64-tool/base64-tool.component';
     ParseJsonComponent,
 
     Base64ToolComponent,
+
+    GenerateImageComponent,
   ]
 })
 export class ToolsModule { }
