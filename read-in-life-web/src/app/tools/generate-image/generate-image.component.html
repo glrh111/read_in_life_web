@@ -92,9 +92,11 @@ image_area
     </div>
 
     <!-- 隐藏的canvas -->
-    <canvas #canvas>
+    <canvas #canvas hidden>
 
     </canvas>
+
+    <img id="displayed_image" *ngIf="imageSrc" [src]="imageSrc">
 
 
   </div>

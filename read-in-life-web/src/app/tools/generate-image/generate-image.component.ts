@@ -18,11 +18,14 @@ export class GenerateImageComponent implements OnInit {
   canvasImage: CanvasImage = new CanvasImage(
     '#f0f', '#fff', 'ReadInLife', 1, 48, 240, 720, 72
   );
+  imageSrc: string;
 
   @ViewChild("canvas") canvas;
   canvasContext: CanvasRenderingContext2D;
 
-  constructor() { }
+  constructor() {
+    this.imageSrc = '';
+  }
 
   ngOnInit() {
   }
@@ -48,6 +51,8 @@ export class GenerateImageComponent implements OnInit {
       this.canvasImage.content, this.canvasImage.width/2, this.canvasImage.height/2
     );
 
+    // 生成图片
+    this.imageSrc = canvas.toDataURL('image/png');
 
   }
 
