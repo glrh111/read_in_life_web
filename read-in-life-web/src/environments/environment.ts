@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  api_url: 'https://glrh11.com'
+  api_url: 'https://glrh11.com',
+  im_wss_url: 'ws://127.0.0.1:8282'
 };

@@ -7,7 +7,7 @@
   <!--name="title" [formControl]="formC" required -->
   <md-input-container>
     <input mdInput placeholder="用户名" [(ngModel)]="acc.username"
-           [formControl]="usernameFormControl" required>
+           [formControl]="usernameFormControl" >
     <md-error *ngIf="usernameFormControl.hasError('required')">
       用户名必填
     </md-error>

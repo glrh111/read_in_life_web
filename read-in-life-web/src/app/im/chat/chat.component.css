@@ -1,0 +1,29 @@
+.im-chat {
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.im-chat > * {
+
+}
+
+/* 聊天消息列表xs */
+.im-chat-message-list {
+  text-align: left;
+  border: 1px solid gray;
+  min-height: 100px;
+  padding: 10px;
+  margin: 10px;
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+
+/* 提交按钮 */
+.im-chat-submit {
+  width: 40px;
+  height: 20px;
+  background: gray;
+  display: inline-block;
+}

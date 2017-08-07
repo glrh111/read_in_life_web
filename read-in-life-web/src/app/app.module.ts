@@ -22,6 +22,7 @@ import { MaterialUiModule } from './material-ui/material-ui.module';
 
 // 特性模块
 import { ToolsModule } from './tools/tools.module';
+import { ImModule } from './im/im.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -75,6 +76,10 @@ import { AccountLoginComponent } from './component/account-login/account-login.c
 
     // 自定义模块
     ToolsModule,
+
+    // im 模块
+    ImModule,
+
 
     // md
     MaterialUiModule,

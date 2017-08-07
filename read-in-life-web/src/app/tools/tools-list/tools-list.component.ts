@@ -33,6 +33,13 @@ export class ToolsListComponent implements OnInit {
         'http://o9hjg7h8u.bkt.clouddn.com/pic_coin_tu.png',
         '图片生成'
       ),
+
+      // im 工具
+      new Tool(
+        '/a_r/im/index',
+        'http://o9hjg7h8u.bkt.clouddn.com/im.png',
+        '聊天工具'
+      ),
     ];
   }
 

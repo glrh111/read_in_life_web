@@ -1,0 +1,43 @@
+<!--
+聊天页面布局: 群聊
+
+----------------------------
+|
+|      聊天
+| id: message...
+| id: message...
+| id: message...
+| ......
+|
+----------------------------
+
+-->
+
+<div class="im-chat">
+
+  <!-- 消息列表 -->
+  <h3>聊天</h3>
+
+  <div class="im-chat-message-list">
+
+    <ul>
+      <li *ngFor="let message of messageList">
+        {{ message.id }} : {{ message.content }}
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- 发送消息 -->
+  <div class="im-chat-send-message">
+
+    <input type="text" [(ngModel)]="subMessage" />
+
+    <div class="im-chat-submit" (click)="sendMessage()" *ngIf="subMessage">
+      提交
+    </div>
+
+  </div>
+
+
+</div>
