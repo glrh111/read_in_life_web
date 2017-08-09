@@ -59,7 +59,6 @@ export class UnixTimeComponent implements OnInit {
       : this.timeZoneList;
   }
 
-
   time13ToDatestr() {
     console.log(moment(this.time13Upper), this.tzUpper, this.tzLower);
     if (!this.time13Upper) {

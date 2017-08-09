@@ -22,7 +22,7 @@
 
     <ul>
       <li *ngFor="let message of messageList">
-        {{ message.id }} : {{ message.content }}
+        {{ message.from_id }} : {{ message.content }}
       </li>
     </ul>
 
@@ -35,6 +35,10 @@
 
     <div class="im-chat-submit" (click)="sendMessage()" *ngIf="subMessage">
       提交
+    </div>
+
+    <div>
+      {{connectMessage}}
     </div>
 
   </div>
