@@ -13,6 +13,7 @@ import { ToolsListComponent } from './tools-list/tools-list.component';
 import { ParseJsonComponent } from './parse-json/parse-json.component';
 import { Base64ToolComponent } from './base64-tool/base64-tool.component';
 import { GenerateImageComponent } from './generate-image/generate-image.component';
+import { MineSweeperComponent, DealWithEscapedSecondPipe } from './mine-sweeper/mine-sweeper.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,14 @@ import { GenerateImageComponent } from './generate-image/generate-image.componen
     Base64ToolComponent,
 
     GenerateImageComponent,
+
+    MineSweeperComponent,
+
+    DealWithEscapedSecondPipe,
+
+  ],
+  exports: [
+    DealWithEscapedSecondPipe,
   ]
 })
 export class ToolsModule { }

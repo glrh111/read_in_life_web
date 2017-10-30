@@ -1,0 +1,75 @@
+<!--
+UI 参照win10扫雷
+
+https://www.microsoft.com/en-hk/store/p/microsoft-minesweeper/9wzdncrfhwcn#
+
+背景颜色： #35373f
+
+
+-->
+
+<div class="whole-zone">
+
+  <!--<div class="box-base box-init"></div>-->
+
+  <!--<div class="box-base box-number">-->
+    <!--<p>1</p>-->
+  <!--</div>-->
+
+
+  <!--<div class="box-base box-flag"></div>-->
+
+  <!--<div class="box-base box-bomb"></div>-->
+
+  <h2>Mine Sweeper</h2>
+
+  <br>
+
+  <!-- 这里是几个控件 -->
+  <div class="mine-control">
+
+    <!-- 显示一个图标 已经用的时间 -->
+    <div class="mine-control-timer">{{ matchTimeSecond | dealWithEscapedSecondPipe}}</div>
+
+    <!-- 是否赢取了比赛。这个用emoji代替 -->
+    <div class="mine-control-if-win"
+         [ngClass]="{ 'mine-control-if-win-ing':  !mineArray.isFinished,
+                      'mine-control-if-win-win':  !mineArray.isFailed && mineArray.isFinished,
+                      'mine-control-if-win-fail': mineArray.isFailed && mineArray.isFinished }"></div>
+
+    <!-- Reset按钮 复原 -->
+    <div class="mine-control-reset hander-cursor"
+         (click)="reset()"></div>
+
+  </div>
+
+
+  <!-- 下面是雷区 -->
+  <div class="mine-array" (contextmenu)="disabledRightClick()">
+
+    <!-- 每一行 -->
+    <div class="mine-array-line" *ngFor="let mineArrayLine of mineArray.mineArray">
+      <!-- 每一个方格 -->
+      <div class="box-base "
+           [ngClass]="{ 'box-bomb':   mineBox.isMine && mineBox.isKnown,
+                      'box-number': !mineBox.isMine && mineBox.isKnown,
+                      'box-flag':   mineBox.isMarked && !mineBox.isKnown,
+                      'box-init':   !mineBox.isKnown && !mineBox.isMarked }"
+           *ngFor="let mineBox of mineArrayLine"
+           (click)="onLeftClick(mineBox, $event)"
+           (contextmenu)="onRightClick(mineBox, $event)">
+        <!-- 是否显示这个数字? 以下情况下显示:
+             这个不是雷 + 已经揭开了
+         -->
+        <p *ngIf="!mineBox.isMine && mineBox.isKnown">
+          {{mineBox.surroundedMineAmount}}
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
+
+</div>

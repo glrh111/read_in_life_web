@@ -40,6 +40,14 @@ export class ToolsListComponent implements OnInit {
         'http://o9hjg7h8u.bkt.clouddn.com/im.png',
         '聊天工具'
       ),
+
+      // 扫雷
+      new Tool(
+        '/a_r/tools/mine_sweeper',
+        'http://o9hjg7h8u.bkt.clouddn.com/pic_coin_mine_sweep.png',
+        '扫雷'
+      )
+
     ];
   }
 

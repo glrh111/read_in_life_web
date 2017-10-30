@@ -1,0 +1,114 @@
+/* emoji 从这里获取 https://getemoji.com/ */
+
+.whole-zone {
+  width: 100%;
+  text-align: center;
+  font-family: Monaco, "Lucida Console", monospace;
+}
+.hander-cursor {
+  cursor: pointer;
+  cursor: hand;
+}
+
+/* 几个控件区 */
+.mine-control {
+  font-size: 20px;
+  color: white;
+  margin: 20px ;
+}
+
+.mine-control div {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+/* 是否赢得了比赛 */
+.mine-control-if-win {
+  font-size: 30px;
+}
+.mine-control-if-win-ing:before { /* 正在进行 */
+  content: "🙃";
+}
+.mine-control-if-win-win:before { /* 赢了 笑脸 */
+  content: "😀";
+}
+.mine-control-if-win-fail:before { /* 失败了 */
+  content: "😇";
+}
+
+/* Reset 按钮 */
+.mine-control-reset {
+  background: #716ffe;
+  padding: 5px;
+  border-radius: 2px;
+}
+.mine-control-reset:before {
+  content: "Reset";
+}
+
+/* 雷区 */
+.mine-array {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+/* 每一行 */
+.mine-array-line {
+  display: block;
+}
+
+
+/* 方格的基础类 */
+.box-base {
+  height: 30px;
+  width: 30px;
+  border-radius: 2px;
+  padding: 0;
+  display: inline-block;
+  margin: 0 3px 3px 0;
+
+  /* 内容相关 */
+  line-height: 30px;
+  font-size: 30px;
+  font-weight: 900;
+
+  color: #66ff2d;
+  text-shadow: 1px 1px 2px #000;
+  vertical-align: middle;
+  text-align: center;
+}
+.box-base p {
+  margin: 0;
+  padding: 0;
+}
+
+/* 未点击的状态: 蓝色方格 */
+.box-init {
+  background: radial-gradient(#83c8ef, #716ffe);
+}
+
+/* 已经点开的方格：上边显示数字 */
+.box-number {
+  /*background: radial-gradient(#fff, #666666);*/
+  /* border: 2px solid #000; */
+  box-shadow: 0 0 6px #000 inset;
+  background: #eee;
+}
+
+/* 标记好的方格：上边插着旗子 */
+.box-flag {
+  background: radial-gradient(#e3faef, #d5c941);
+}
+.box-flag:before {
+  content: "旗";
+  color: #0000ff;
+}
+
+/* 点击的方格：手雷 */
+.box-bomb {
+  background: radial-gradient(#ffaaaa, #ff0000);;
+}
+.box-bomb:before {
+  content: "雷";
+  color: #ff0000;
+}
